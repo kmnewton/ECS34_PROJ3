@@ -5,9 +5,7 @@
 #include "DSVReader.h"
 
 class CCSVBusSystem : public CBusSystem{
-    private:
-        struct SImplementation;
-        std::unique_ptr< SImplementation > DImplementation;
+   
     public:
         CCSVBusSystem(std::shared_ptr< CDSVReader > stopsrc, std::shared_ptr< CDSVReader > routesrc);
         ~CCSVBusSystem();
@@ -18,6 +16,11 @@ class CCSVBusSystem : public CBusSystem{
         std::shared_ptr<SStop> StopByID(TStopID id) const noexcept override;
         std::shared_ptr<SRoute> RouteByIndex(std::size_t index) const noexcept override;
         std::shared_ptr<SRoute> RouteByName(const std::string &name) const noexcept override;
+    private:
+        struct SImplementation;
+        std::unique_ptr< SImplementation > DImplementation;
+        class SStop;//change this to a class
+        class SRoute;//change this to a class
 };
 
 #endif

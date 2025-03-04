@@ -19,6 +19,9 @@ class COpenStreetMap : public CStreetMap{
         std::shared_ptr<CStreetMap::SNode> NodeByID(TNodeID id) const noexcept override;
         std::shared_ptr<CStreetMap::SWay> WayByIndex(std::size_t index) const noexcept override;
         std::shared_ptr<CStreetMap::SWay> WayByID(TWayID id) const noexcept override;
+    private:
+        struct SImplementation;
+        std::unique_ptr<SImplementation> DImplementation;
 };
 
 #endif
